@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES += \
-    device/essential/mata/evolution_mata.mk
+    device/essential/mata/soni_mata.mk
 
 COMMON_LUNCH_CHOICES := \
-    evolution_mata-user \
-    evolution_mata-userdebug \
-    evolution_mata-eng
+    soni_mata-user \
+    soni_mata-userdebug \
+    soni_mata-eng

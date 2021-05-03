@@ -1,10 +1,11 @@
-# Inherit some common Lineage stuff.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, vendor/evolution/config/common_full_phone.mk)
-
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n_mr1.mk)
+
+# Inherit some common SoniUI stuff
+$(call inherit-product, vendor/soni/config/common_full_phone.mk)
+# $(call inherit-product, vendor/xperia/config.mk)
 
 # Vendor blobs
 $(call inherit-product-if-exists, vendor/essential/mata/mata-vendor.mk)
@@ -20,11 +21,26 @@ TARGET_RECOVERY_FSTAB := device/essential/mata/rootdir/etc/fstab.mata
 
 # Device identifiers
 PRODUCT_DEVICE := mata
-PRODUCT_NAME := evolution_mata
+PRODUCT_NAME := soni_mata
 PRODUCT_BRAND := essential
 PRODUCT_MODEL := PH-1
 PRODUCT_MANUFACTURER := Essential Products
 PRODUCT_RELEASE_NAME := mata
+
+CUSTOM_BUILD_TYPE := UNOFFICIAL
+
+TARGET_GAPPS_ARCH := arm64
+TARGET_BOOT_ANIMATION_RES := 1440
+TARGET_INCLUDE_WIFI_EXT := true
+TARGET_INCLUDE_STOCK_ARCORE := true
+TARGET_SUPPORTS_GOOGLE_RECORDER := true
+
+# Debug
+TARGET_DEBUG_ENABLE := true
+
+# ABI Checks
+SKIP_ABI_CHECKS := true
+
 
 PRODUCT_ACTIONABLE_COMPATIBLE_PROPERTY_DISABLE := true
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
@@ -36,7 +52,3 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
         PRIVATE_BUILD_DESC="mata-user 8.1.0 OPM1.180104.092 224 release-keys"
 
 BUILD_FINGERPRINT := essential/mata/mata:8.1.0/OPM1.180104.092/224:user/release-keys
-
-# Inherit some common Evolution X stuff.
-TARGET_BOOT_ANIMATION_RES := 1080
-WITH_GAPPS := true
